@@ -57,13 +57,11 @@ const games = [
   }
 ];
 
-
-router.get("/games", (req, res) => {
+router.get("/", (req, res) => {
     res.status(200).json(games);
 });
 
-
-router.get("/game/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     const id = Number(req.params.id);
     const game = games.find((game) => game.id === id);
 
@@ -73,8 +71,7 @@ router.get("/game/:id", (req, res) => {
     res.status(200).json(game);
 });
 
-
-router.post("/game", (req, res) => {
+router.post("/", (req, res) => {
     const { title, price } = req.body;
     
     if (!isGoodStringParam(title) || !isGoodNumericParam(price)) {
@@ -93,8 +90,7 @@ router.post("/game", (req, res) => {
     res.status(201).json(newGame);
 });
 
-
-router.put("/game/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     const id = Number(req.params.id);
     const game = games.find((game) => game.id === id);
 
@@ -120,8 +116,7 @@ router.put("/game/:id", (req, res) => {
     res.status(200).json(game);
 });
 
-
-router.patch("/game/:id", (req, res) => {
+router.patch("/:id", (req, res) => {
     const id = Number(req.params.id);
     const game = games.find((game) => game.id === id);
 
@@ -148,8 +143,7 @@ router.patch("/game/:id", (req, res) => {
     res.status(200).json(game);
 });
 
-
-router.delete("/game/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     const id = Number(req.params.id);
     const gameIx = games.findIndex((game) => game.id === id);
 

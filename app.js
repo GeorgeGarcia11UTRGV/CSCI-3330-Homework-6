@@ -6,7 +6,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use("/api", gameRoutes);
+app.use("/api/games", gameRoutes);
 
 app.get("/", (req, res) => {
     res.status(200).send("<h1>Request received!</h1><h2>Hello from server app</h2>");
